@@ -16,6 +16,9 @@
 var dice, rolls, roll, total;
 
 // Describe this function...
+var dice, rolls, roll, total;
+
+// Describe this function...
 function display_the_rolls_total() {
   if(--window.LoopTrap <= 0) throw "Infinite loop.";
   let element_list = document.getElementById('list');
@@ -37,6 +40,7 @@ function display_the_rolls_total() {
     element_info.innerText = 'You won! 😀';
   } else if (total < 11) {
     let element_info2 = document.getElementById('info');
+    element_info2.style.color = '#000000';
     element_info2.innerText = 'Keep playing!';
   } else {
     let element_info3 = document.getElementById('info');

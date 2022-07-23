@@ -1,0 +1,84 @@
+<html>
+
+<p>My code Nlock html </p>
+
+<p>So far you have rolled:</p>
+<ul id="list"></ul>
+<button id="button_roll">Roll the dice</button>
+
+<p>Total: <span id="total">0</span>. <span id="info">Keep playing!</span></p>
+<button id="button_remove">Remove the last roll</button>
+<button id="button_restart">Start again</button>
+
+
+<script>
+
+var dice, rolls, roll, total;
+
+// Describe this function...
+function display_the_rolls_total() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  let element_list = document.getElementById('list');
+  element_list.replaceChildren();
+  let element_list2 = document.getElementById('list');
+  rolls.forEach((roll) => {
+    let new_button = document.createElement('button');
+    new_button.style.backgroundColor = '#ff6600';
+    new_button.innerText = roll;
+
+    element_list2.appendChild(new_button);
+  });
+  let element_total = document.getElementById('total');
+  element_total.innerText = rolls.reduce((a,b) => a+b, 0);
+  total = rolls.reduce((a,b) => a+b, 0);
+  if (total == 11) {
+    let element_info = document.getElementById('info');
+    element_info.style.color = '#33cc00';
+    element_info.innerText = 'You won! 😀';
+  } else if (total < 11) {
+    let element_info2 = document.getElementById('info');
+    element_info2.innerText = 'Keep playing!';
+  } else {
+    let element_info3 = document.getElementById('info');
+    element_info3.style.color = '#ff0000';
+    element_info3.innerText = 'You lost! 🙁';
+  }
+}
+
+function randomInt(n) {
+  // Return a random number from in [0, n[
+  return Math.floor(Math.random()*n);
+}
+
+function randomMember(arr) {
+  // Return a random member of the array
+  return arr[randomInt(arr.length)]
+}
+
+
+dice = [1, 2, 3, 4, 5, 6];
+rolls = [];
+
+
+document.getElementById('button_roll').addEventListener('click', (event) => {
+  rolls.push(randomMember(dice));
+  display_the_rolls_total();
+
+});
+
+document.getElementById('button_remove').addEventListener('click', (event) => {
+  let element_total2 = document.getElementById('total');
+  rolls.pop();
+  display_the_rolls_total();
+
+});
+
+document.getElementById('button_restart').addEventListener('click', (event) => {
+  let element_total3 = document.getElementById('total');
+  rolls = [];
+  display_the_rolls_total();
+
+});
+</script>
+
+</html>

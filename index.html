@@ -13,74 +13,95 @@
 
 <script>
 
-var dice, rolls, roll, total;
+var navbar, shopping, slider;
 
 // Describe this function...
-var dice, rolls, roll, total;
-
-// Describe this function...
-function display_the_rolls_total() {
+function displayNavbar() {
   if(--window.LoopTrap <= 0) throw "Infinite loop.";
-  let element_list = document.getElementById('list');
-  element_list.replaceChildren();
-  let element_list2 = document.getElementById('list');
-  rolls.forEach((roll) => {
-    let new_button = document.createElement('button');
-    new_button.style.backgroundColor = '#ff6600';
-    new_button.innerText = roll;
+  while (!!navbar.length) {
+    if(--window.LoopTrap <= 0) throw "Infinite loop.";
+    let element_links = document.getElementById('links');
+    let new_li = document.createElement('li');
+    let new_a = document.createElement('a');
+    new_a.innerText = navbar.shift();
+    new_a.setAttribute("href", navbar.shift());
 
-    element_list2.appendChild(new_button);
-  });
-  let element_total = document.getElementById('total');
-  element_total.innerText = rolls.reduce((a,b) => a+b, 0);
-  total = rolls.reduce((a,b) => a+b, 0);
-  if (total == 11) {
-    let element_info = document.getElementById('info');
-    element_info.style.color = '#33cc00';
-    element_info.innerText = 'You won! 😀';
-  } else if (total < 11) {
-    let element_info2 = document.getElementById('info');
-    element_info2.style.color = '#000000';
-    element_info2.innerText = 'Keep playing!';
+    new_li.appendChild(new_a);
+
+    element_links.appendChild(new_li);
+  }
+  let element_img = document.getElementById('img');
+  slider.push(slider[0]);
+  element_img.setAttribute("src", slider.shift());
+}
+
+function getNumberOrString(value) {
+  // Convert a string value to a number if possible
+  let number_value = Number(value);
+  if (Number.isNaN(number_value)) {
+    return value
   } else {
-    let element_info3 = document.getElementById('info');
-    element_info3.style.color = '#ff0000';
-    element_info3.innerText = 'You lost! 🙁';
+    return number_value
   }
 }
 
-function randomInt(n) {
-  // Return a random number from in [0, n[
-  return Math.floor(Math.random()*n);
-}
-
-function randomMember(arr) {
-  // Return a random member of the array
-  return arr[randomInt(arr.length)]
+// Describe this function...
+function displayShopping() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  let element_shaping_basket = document.getElementById('shaping_basket');
+  element_shaping_basket.innerText = shopping;
 }
 
 
-dice = [1, 2, 3, 4, 5, 6];
-rolls = [];
+navbar = ['CYF Blocks', 'https://blocks.codeyourfuture.io/share.html?v=(\'j!(\'blocks!(\'languageVersion!0~blocks!%5B(\'type!\'on_start\'~id!\'nUF%7DZQ*m%5DF(%2CY3%5Dp%7Cjm3\'~x!53~y!-136~fields!(\'TEXT1!\'at%20the%20start%20%7Bwhen%20run%20is%20clicked%7D\')%C2%83HANDLER%C2%A8T%25A%7Di%3AH%25a_tMMs%5DhPRyR%26%C2%B3%C2%9C\'~id!\'C%24Mn%5DFxmIdbdks%7B.hIX%7B%C2%A36)%C2%83ADD0%C2%958l4pM%5E-EoBqDn)om-.%2Fi%C2%9DCYF%20Blocks%C2%BF1%C2%95i%2CI_IBc64d%3A.L%7ChJ%5Db%3Az%C2%9D%C2%BF2%C2%95N5anDNC%40%2B2_%5D7Ex%2B%3DekH%C2%9DShop%C2%BF3%C2%957s%2Cy%7Cs7VRo%7DQZyyLwi5%5D%C2%9D%23%C2%BF4%C2%95vhB%236Ap-U%5EF3%3FtQs%7D5Tu%C2%9DShopping%C2%BF5%C2%95%3FRqrIx6uNw05o.U\'%3A%5E%7C1J%C2%9D%23%C3%82raNvZ%24rA%7DG\'%3Af%60%40s*m7%23%2B%7F%C2%9C\'~id!\'iU%2Cg.Td%23bi%60GKtX(L%3Fg%25%C2%A34)%C2%83ADD0%C2%95Rgm(bRvt0h%5DFW%24*%5B4cq%5B%C2%9D%C2%86gallery-corporate.jpg%C2%BF1%C2%95v%60SxK%3F%3B7%2C\'7taIOMH8%2C\'%23R%C2%9D%C2%86gallery-weddings.jpg%C2%BF2%C2%95i%25%5E%7C-.fxA7ZKj%23G%251KOE%C2%9D%C2%86gallery-parties.jpg%C2%BF3%C2%95LjJIgs7%2B4S%2C\'nHKIT1q1%3D%C2%9D%C2%86gallery-christmas.jpg%C3%826oqAm%7Cn%2F\'%3ATTA5xvNZ%3B5C%C2%85%C2%9C\'~id!!o%5E%3F*xhk%2FXhbbhl%23v8%5Dz%C2%A30%C2%92\'~id!\'(_%2Fi0p.9O%24*Jvi)%2C\')3Fr%C2%98Navbar\'))%C2%A21%7C%2FTQBUm.%23\'%3Ac2Et%3Dpo%60%7C\'~x!55~y!-168~coll%C2%9E%C2%A0%C2%BCNavbar%C2%90controls_whileUntil\'~id!\'oHyRIeqhVgV%2BEV4q%3A%3FHu%26MODE!\'WHILE\')%C2%83BOOL%22logic_negate\'~id!\'%7D%3A%2C)bHh%2B%3BB%3DyU%5DA%7Ba2a1\'%C2%83BOOL%22lists_isEmpty\'~id!\'Ft%25%3B8%7D8tlJ*mw8%24%60c%3DBt\'%C2%82!\'jtF%7B%3D\'%3Azkj%5DSD%24%24%2Fh%600_(%26%C2%B3))))))))~DO%C2%8BT4wfMXzF-A%3A%5BD%2FJE-%2Ffw%26ID!\'links%C2%BE!\'M-_Z0xu0l0InRmi%25(%3F3c%26ELEMENT!\'li%C2%BE!\'azHxHZ%60cia_U(%3Ffqwd%2C9%26ELEMENT!\'a%C2%90%C2%96k)\'%3A%2B%2C\'Uw%2CjjYLp%3Fn*Lnt%24\'%C2%AD%C2%AFtwd9xIQp0ZYC6l2%7C%24w2-%C2%A4arrays_getFirst\'~id!\'h_uqqEp%3FnHv%5B%251f%2ClO70%C2%B4%C2%82!\'WpZc%3AnKo%7CuYj_IOR%3A9%5E~~fields!(\'%C2%B3)))%C2%93oVv%5Ed1DG%2C\'9%3Bw%7D%5EiX3%2Ciz%C2%B2href%C2%89\'~id!\'%24Z%3DDWy%5Eb\'%3A%7Cj%2FJt8%2F2F2.%C2%B4%C2%82!\'J3%7B1jf8%7CrWj43(9%23%3F(*%60%26%C2%B3%C2%BA%C2%BA))~next%C2%8B2b1TIU(%3Ai%2CWLRb.%25c%40vO%26%C2%AAush\'~id!\'I%3D5HOiW%3A(%2Co*d%3Bq%2C\'aBeI%26WHERE!\'END%C2%89\'~id!\'NJ%40%7D%5Bxz8TY6q5xa%5DD1LB%C2%A9FIRST\')%C2%82!\'(USprJ%5B%5D%7DlK-r%23K%5ElP%7DW%7F%C2%9B\'KV%3A5lmv%24CC*Gb\'%3AWvMOSf%7F%C2%939F%2C\'m%40HuedtJz%24qwZg37G%C2%B2src%C2%89\'~id!\'TXF6%60gEGKtbckY%3B%7BDD2%3B%C2%B4%C2%82!\'%2C\'ggiI1Vq63tyz%7Co0(j%2C\'5%7F)))%C2%BDm)%3F%2C\'X%5Bs1%7DWiesD%7D%3FXBNt\'~x!52~y!-102~coll%C2%80id\'~ID!\'next%C2%88%C2%8B%7Dk%245UJuIg%7BQ%7B8Qh6wq%3Bl%26%C2%AAush\'~id!\'9O%7BiVvQZYF8MDiq%5D)wl%7C%26WHERE!\'END%C2%89\'~id!\'%7C%40s%7CNkI%60%2FNoKSjl%60Az9W%C2%A9FIRST\')%C2%82!\'%3F%7BWZRF2QZ%3Dr\'%3AeiW1%24j_E%7F%C2%9B\'t%5E0%7B%5D%7BPoP%5Bz5D\'%3Ac%7C_2IF%7F%C2%93FH*mV%7DGx.0b-9o%25%5DzHb5%C2%B2src%C2%89\'~id!\'%24F%3ASfXcS)IHZxTbRqsPf%C2%B4%C2%82!\'c%7C4haE%3BObQ2%251YHyR%60d9%7F)%C2%BDVzvR%2F%602quAgro%7C%2FM4-%5DC\'~x!49~y!-71~coll%C2%80id\'~ID!\'previous%C2%88%C2%8B%23%7C99aN%3AW%3BCr%2CXS%7D9J%24N7%26%C2%AAush\'~id!\'%3B%2BuQ\'%3A%2C\'t%3DV).I0lE3j%3D3%7D%26WHERE!\'START%C2%89\'~id!\'%24%2C\'XU%2B%3BmC%2B(2c%7B%3BLTNT%60g%C2%A9LAST\')%C2%82!\'%3Fl.1dnLkA(%25g-%7Dp6RgQ9%7F%C2%9B!%7D0F%2BFZoNz6h%7B%3Fw%7BCzqc%7F%C2%93%23O%5E%2B4%3AM2%2385%7CPEn-%2C\'yw%5D%C2%B2src%C2%89\'~id!\'6QE%7CCT3UdF%3B%5D%24%2BiP(n.*%C2%91LAST\')%C2%82!\'ML0B(*fAfN-9ET%5Bw%2C\'%3FKm%7F)%C2%BDZ)_%7DeLvf-%3F%2C\'Xiiev-R%2F0\'~x!48~y!-37~coll%C2%80id\'~ID!\'submit%C2%88%22controls_if\'~id!\'THG\'%3AEp*C\'%3AbHY0vlr%25rJ%60%C2%B7hasElse!true)%C2%83IF0%22logic_compare\'~id!\'_cYg%2C\'KN%2BFd%7CX*QJAtn%2FJ%26OP!\'GT\')%C2%83A%22get_input_value_with_id\'~id!\'98YZnsK_*EYnlwp5h%7BNB%26ID!\'text\')))~B%C2%95q%3BfM.dV%7BD0yDvEtCTNVJ%C2%9D\'))))))~DO0%C2%8B%3B*Hz*%7B%40eoYX(%7Db%3AxcCQl%26ID!\'response%C2%90%C2%965%60Rled\'%3APK2Tn\'%3AHjpYLbh\'%C2%AD%C2%81%C2%8AkT9(h)fE8%3BMiF5RdH%5Dur%C2%9DThanks%20for%20visiting%20us.%20%F0%9F%98%8A\'%C2%BA~ELSE%C2%8Bh%247-cGw%23%5BaqGm14xiVar%26ID!\'response%C2%90%C2%96xbA%2F%23%609xcB%5D5PER_%3BSAa\'%C2%AD%C2%81%C2%8Ad%24(1yN1_2S%40r1t%5BzHjw3%C2%9DPlease%20leave%20a%20comment\'%3A\'%C2%BD%5D5%7DUMEhJ2%7DA%2FkS%3B%3AV1tF\'~x!55~y!117~coll%C2%80%C2%B81%C2%88%C2%ACZ3V2Om%3Bbkz-7r%3FW9R)7t%C2%85%C2%AB%C2%8F%C2%94%C2%8Fh.%24c%7CM97%5E%3Ax3n%5EG%40r(Yz%26%C2%A55od%247%7BMCv%60%60Nr(6lh1_H\'%C2%AD%C2%81%C2%8A%5EQvw1gt%60h%23-ksmLQAAL%5D%C2%9A%C2%92\'~id!\'GZ(P_%3D%23%3Fo%5BuocSwj%5D%3B\'%3A0%C2%B9%C2%A2%5DRtq%2F1pU%7C\'%3AK%2FA%3BY18%23%3Fl\'~x!60~y!80~coll%C2%9E%C2%A0%C2%BCShopping\')%C2%83STACK%C2%8Byn8mjE%2C%60(m%3Aungr%60%2FfW9%26ID!\'shaping_basket%C2%90%C2%96_8slDw%5Dwk%7D%2FU%2CEh%2FbZ2%23\'%C2%AD%C2%811%C2%A4%C2%B1!\'%7B%40a3NrjRls%5EI5Ighw%2C\'-D%C2%85)%C2%84%5BY6RWdPK%3A2%7Bj41%7BP%7DEF%2F\'~x!56~y!149~coll%C2%80%C2%B82%C2%88%C2%AC%6084zVgFY42TIy-DsILBK%C2%85%C2%AB%C2%8F%C2%94%C2%8F%7B*0J.%5E%23%7B4.W%2C%3DSyRE%60%7BO%26%C2%A5a%3F8%3DbI2wX5%7C%5BAc6gx%2B0p\'%C2%AD%C2%81%C2%8Agg5clD%25wpb%7D%2C\'hXuihode%C2%9A%C2%92\'~id!\'0p0N8d%5BZSXv)%7BkOWDlO%40%C2%B9%C2%8436J9%3D.nw%5EI1JC%2F4Qy%2CH%3B\'~x!57~y!187~coll%C2%80%C2%B83%C2%88%C2%AC4%5Djfgwi%40FuS%2FhQl%2C\'4Q%3FJ%C2%85%C2%AB%C2%8F%C2%94%C2%8F%7DEbvad3C6QY7_7TJs%2B%2C%5D%26%C2%A5g\'%3AFx%7C5uRT%7Bm2vhm%2C\'WSl%23\'%C2%AD%C2%81%C2%8AsK%7B%5D%23%23y%2B9lIx%2BqpnV83E%C2%9A%C2%92\'~id!\'1xiZOxgo%2CtA_ql%2FO%3DVw%3D%C2%B9%C2%BA%5D)~variables!%5B(\'name!\'navbar\'~%C2%87%C2%BBslider\'~%C2%A7%C2%BBcomment\'~id!\'%235gXk%5BGG%5BsgT0LCLy%3F%5Bs\')%C2%BBshopping\'~%C2%A6%C2%BBi\'~id!\'2%23%3D%23%60kP-gwc8%24uZfYx3N\')%5D)~h!\'%3Cheader%C2%B6header%5C\'%C2%AE%3Cul%C2%A1links%5C\'%C2%B6nav-menu%5C\'%2F%3E%20%3C%2Ful%3E%F0%9F%9B%92%3Cspan%C2%A1shaping_basket%C2%B0header%C2%AE%3Cimg%C2%A1img%C3%81500px%5C\'%20%3B%C3%80previous%5C\'%C2%B6center%5C\'%3E%3C%3C%C2%B5%C2%8Dnext%5C\'%3E%3E%3E%C2%B5%C2%AE%5Cn%5Cn%3C%2Fdiv%C2%AE%3Cdiv%C2%A1shopping-items%5C\'%20%C2%9Fh3%3EI%20promise%20to%20send%20you%20the%20package%20if%20you%20manage%20to%20checkout\'%3A%3C%2Fh3%C2%9Ful%20%C2%8Eycks7pdp%C2%971%C2%991%C2%8C%C2%8Eyw5ua93k%C2%972%C2%992%C2%8C%C2%8E25sxht9r%C2%973%C2%993%C2%8C%3C%2Ful%C2%AE%3C%2Fdiv%C2%AE%5Cn%3Cdiv%C2%A1comment%5C\'%20%C2%9Fh3%3EPlease%20leave%20your%20comment%20here%3C%2Fh3%C2%9Finput%C2%A1text%5C\'%20%C3%80submit%5C\'%3ESubmit%C2%B5%C2%9F%2Fbr%C2%9Fspan%C2%A1response%C2%B0div%3E%5Cn\')%22!(\'block!(\'type!\'%26\'~fields!(\'%7F%26VAR!(\'%C2%A7)%C2%80apsed!true~fields!(\'TEXT1!\'when%20the%20element%20with%20%C2%81%C2%AFa%7DI83%7Bkxfu_HP58DDv%23%C2%82%C2%ADUE%22%C2%B1%C2%83~inputs!(\'%C2%84%C2%BA%2C(\'type!\'element_clicked\'~id!\'%C2%85%26VAR!(\'%C2%A6)%C2%86https%3A%2F%2Fwww.burgeon.co.uk%2FContent%2FImages%2Fgallery%2F%C2%87id!\'%60Z\'%3A7%7B9s1g.\'%3AUbp%40\'%3A-A%5D%25\')%C2%88\'~TEXT2!\'is%20clicked\')%C2%83HANDLER%C2%89\')%C2%ADUE%22arrays_getFirst%C2%8A1%C2%A4text\'~id!\'%C2%8B%22with_element_by_id\'~id!\'%C2%8C%5C\'%3Eadd%20to%20shopping%20cart%C2%B5%C2%9F%2Fli%3E%5Cn%C2%8D%C2%9Fbutton%C2%A1%C2%8E%5Cn%3Cli%3E%3Cimg%20src%3D%5C\'https%3A%2F%2Ftinyurl.com%2F%C2%8F!(\'type!\'math_number\'~id!\'%C2%90\')%C2%83STACK%22%C2%91%26MODE!\'GET_REMOVE\'~WHERE!\'%C2%92))))~next%22procedures_callnoreturn%C2%93)))~next%22set_attribute\'~id!\'%C2%94aAo.Avj3*5m5Us%2BB4%25%605%26NUM!1))~block%C2%95%22text\'~id!\'%C2%96set_content\'~id!\'%C2%97%5C\'%20alt%3D%D9%8E%D9%8E%5C\'package%20%C2%98%C2%B7name!\'display%C2%99%C3%81200%5C\'%C2%8Dbutton_%C2%9A%C2%9DItem%20added%20to%20basket\'%C2%9B)))))~LIST%22%C2%B1!%C2%9C%C2%ADUE%22lists_create_with%C2%9D%26TEXT!\'%C2%9Eapsed!true~icons!(\'comment!(\'text!\'Describe%20this%20%C2%9F%3E%5Cn%3C%C2%A0function...\'~pinned!false~height!80~width!160))~f%C2%A1%20id%3D%5C\'%C2%A2%C2%BA%2C(\'type!\'procedures_defnoreturn\'~id!\'%C2%A3%C2%B7itemCount!%C2%A4%C2%9D\'))~block!(\'type!\'%C2%A5NUM!1))))~next%22%C2%96%C2%A6id!\'m%5DQq7sTSj1%5DPS*%2B%24u%3Fi%2C\'\')%C2%A7id!\'4Rs%5B%2Fhv%7DP(hYg%5Btb4%7DW%7C\')%C2%A8%22variables_set\'~id!\'%C2%A9%26MODE!\'GET\'~WHERE!\'%C2%AAID!\'img%C2%90arrays_p%C2%AB%C2%83DELTA!(\'shadow%C2%AC%22math_change\'~id!\'%C2%AD%C2%83VAL%C2%AE%3E%5Cn%5Cn%C2%AFUE!(\'shadow!(\'type!\'text\'~id!\'%C2%B0%5C\'%3E%20%3C%2Fspan%C2%9F%2F%C2%B1variables_get\'~id%C2%B2%26PROPERTY!\'%C2%B3VAR!(\'%C2%87)%C2%B4%C2%91FIRST\')%C2%B5%3C%2Fbutton%C2%B6%20class%3D%5C\'%C2%B7\'~extraState!(\'%C2%B8id\'~ID!\'button_%C2%B9%C2%98Shopping\'%C2%BA)))))))))%C2%BB%2C(\'name!\'%C2%BCields!(\'NAME!\'display%C2%BD)))))%C2%84%C2%BE%C2%90add_element\'~id%C2%BF\')))~ADD%C3%80%2F%C2%9F%2Fbr%C2%8D%C3%81%5C\'%20width%3D%5C\'%C3%82\')))))))~next%C2%A8%01%C3%82%C3%81%C3%80%C2%BF%C2%BE%C2%BD%C2%BC%C2%BB%C2%BA%C2%B9%C2%B8%C2%B7%C2%B6%C2%B5%C2%B4%C2%B3%C2%B2%C2%B1%C2%B0%C2%AF%C2%AE%C2%AD%C2%AC%C2%AB%C2%AA%C2%A9%C2%A8%C2%A7%C2%A6%C2%A5%C2%A4%C2%A3%C2%A2%C2%A1%C2%A0%C2%9F%C2%9E%C2%9D%C2%9C%C2%9B%C2%9A%C2%99%C2%98%C2%97%C2%96%C2%95%C2%94%C2%93%C2%92%C2%91%C2%90%C2%8F%C2%8E%C2%8D%C2%8C%C2%8B%C2%8A%C2%89%C2%88%C2%87%C2%86%C2%85%C2%84%C2%83%C2%82%C2%81%C2%80%7F%26%22_', 'Shop', '#', 'Shopping', '#'];
+slider = ['https://www.burgeon.co.uk/Content/Images/gallery/gallery-corporate.jpg', 'https://www.burgeon.co.uk/Content/Images/gallery/gallery-weddings.jpg', 'https://www.burgeon.co.uk/Content/Images/gallery/gallery-parties.jpg', 'https://www.burgeon.co.uk/Content/Images/gallery/gallery-christmas.jpg'];
+shopping = [];
+displayNavbar();
 
 
-document.getElementById('button_roll').addEventListener('click', (event) => {
-  rolls.push(randomMember(dice));
-  display_the_rolls_total();
-
-});
-
-document.getElementById('button_remove').addEventListener('click', (event) => {
-  let element_total2 = document.getElementById('total');
-  rolls.pop();
-  display_the_rolls_total();
+document.getElementById('next').addEventListener('click', (event) => {
+  let element_img2 = document.getElementById('img');
+  slider.push(slider[0]);
+  element_img2.setAttribute("src", slider.shift());
 
 });
 
-document.getElementById('button_restart').addEventListener('click', (event) => {
-  let element_total3 = document.getElementById('total');
-  rolls = [];
-  display_the_rolls_total();
+document.getElementById('previous').addEventListener('click', (event) => {
+  let element_img3 = document.getElementById('img');
+  slider.unshift(slider.slice(-1)[0]);
+  element_img3.setAttribute("src", slider.pop());
+
+});
+
+document.getElementById('submit').addEventListener('click', (event) => {
+  if (getNumberOrString(document.getElementById('text').value) > '') {
+    let element_response = document.getElementById('response');
+    element_response.innerText = 'Thanks for visiting us. 😊';
+  } else {
+    let element_response2 = document.getElementById('response');
+    element_response2.innerText = 'Please leave a comment!';
+  }
+
+});
+
+document.getElementById('button_1').addEventListener('click', (event) => {
+  shopping = (typeof shopping === 'number' ? shopping : 0) + 1;
+  event.target.innerText = 'Item added to basket';
+  displayShopping();
+
+});
+
+document.getElementById('button_2').addEventListener('click', (event) => {
+  shopping = (typeof shopping === 'number' ? shopping : 0) + 1;
+  event.target.innerText = 'Item added to basket';
+  displayShopping();
+
+});
+
+document.getElementById('button_3').addEventListener('click', (event) => {
+  shopping = (typeof shopping === 'number' ? shopping : 0) + 1;
+  event.target.innerText = 'Item added to basket';
+  displayShopping();
 
 });
 </script>
